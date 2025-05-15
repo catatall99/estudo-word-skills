@@ -1,0 +1,15 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string nome = "samuel";
+        int idade = 16;
+        double altura = 1.75;
+        bool ativo = true;
+
+        Console.WriteLine($"olá, {nome} você tem {idade}, a sua altura é {altura} e seu estado civil é {ativo}");
+
+    }
+}
