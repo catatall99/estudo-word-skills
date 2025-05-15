@@ -1,0 +1,20 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("digite uma nota de 0 a 10: ");
+        int nota = Console.Read();
+
+        if (nota <= 7) 
+        {
+            Console.WriteLine("APROVADO");
+        }
+        else
+        {
+            Console.WriteLine("REPROVADO");
+        }
+
+    }
+}
