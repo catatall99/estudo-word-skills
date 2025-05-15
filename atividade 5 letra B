@@ -1,0 +1,16 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int soma = 1;
+        for (int i = 0; i <100; i++) 
+        {
+            Console.WriteLine(soma);
+            soma += i;
+        }
+
+
+    }
+}
