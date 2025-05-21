@@ -1,0 +1,31 @@
+using System;
+using ClosedXML.Excel;
+
+class Program
+{
+    static void Main()
+    {
+
+        var wb = new XLWorkbook();
+        var ws = wb.Worksheets.Add("Alunos");
+
+
+        ws.Cell("A1").Value = "Nome";
+        ws.Cell("B1").Value = "Idade";
+        ws.Cell("C1").Value = "Curso";
+
+        ws.Cell("A2").Value = "Ana";
+        ws.Cell("B2").Value = 20;
+        ws.Cell("C2").Value = "Engenharia";
+
+        ws.Cell("A3").Value = "Bruno";
+        ws.Cell("B3").Value = 22;
+        ws.Cell("C3").Value = "Direito";
+
+        ws.Cell("A4").Value = "Carla";
+        ws.Cell("B4").Value = 19;
+        ws.Cell("C4").Value = "Medicina";
+
+        Console.WriteLine("Planilha criada com sucesso!");
+    }
+}
