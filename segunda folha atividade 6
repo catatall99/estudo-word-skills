@@ -1,0 +1,29 @@
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main()
+    {
+        string pasta = "aluno.txt";
+        string nomepasta = "alunos";
+        string aluno = "sla";
+        double nota = 10.0;
+
+        if (Directory.Exists(nomepasta))
+        {
+            Console.WriteLine("A pasta '{0}' já existe.", aluno);
+        }
+        else
+        {
+            Directory.CreateDirectory(nomepasta);
+        }
+
+        string arquivo = Path.Combine(nomepasta, aluno + "txt");
+
+        string conteudo = $"Aluno: {aluno}, Nota: {nota}";
+
+        File.WriteAllText(arquivo, conteudo);
+
+    }
+}
