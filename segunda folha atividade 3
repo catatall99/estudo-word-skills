@@ -1,0 +1,15 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string aluno = "aluno.txt";
+
+        string[] linhas = File.ReadAllLines(aluno);
+        foreach (string line in linhas)
+        {
+            Console.WriteLine(line);
+        }
+    }
+}
