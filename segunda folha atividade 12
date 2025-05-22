@@ -1,0 +1,59 @@
+using System;
+using System.IO;
+using ClosedXML.Excel;
+
+public class PlanilhaReaderClosedXML
+{
+    public static void Main(string[] args)
+    {
+        var wb = new XLWorkbook();
+
+        IXLWorksheet ws = wb.Worksheets.Add("catatall");
+
+        ws.Cell("A1").Value = "ana";
+        ws.Cell("B1").Value = "20";
+        ws.Cell("C1").Value = "engenharia";
+
+        ws.Cell("A2").Value = "bruno";
+        ws.Cell("B2").Value = "22";
+        ws.Cell("C2").Value = "direito";
+
+        ws.Cell("A3").Value = "carla";
+        ws.Cell("B3").Value = "19";
+        ws.Cell("C3").Value = "medicina";
+
+
+        string filePath = @"C:\Users\aluno\Downloads\catatall.xlsx";
+
+            wb.SaveAs(filePath); // salvar o arquivo no caminho que foi indicadoooooooooo
+            Console.WriteLine($"Planilha '{filePath}' criada com sucesso!");
+
+
+            using (var workbookToRead = new XLWorkbook(filePath)) // abre o arquivo que foi salvooooo
+            {
+
+                IXLWorksheet worksheetToRead;
+                if (workbookToRead.TryGetWorksheet("catatall", out worksheetToRead)) // vrifica se exite doooooooido
+                {
+                    Console.WriteLine("\nConteúdo da planilha 'catatall':");
+
+                    foreach (IXLRow row in worksheetToRead.RowsUsed())
+                    {
+
+                        foreach (IXLCell cell in row.CellsUsed())
+                        {
+                        // mostrar linha e colunas
+                            Console.WriteLine($"Linha {cell.Address.RowNumber}, Coluna {cell.Address.ColumnNumber}: {cell.GetString()}");
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Erro: A planilha 'catatall' não achou");
+                }
+            }
+
+            Console.WriteLine("leitura feita com sucesso!");
+        
+    }
+}
