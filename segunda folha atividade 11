@@ -9,11 +9,6 @@ class Program
         var wb = new XLWorkbook();
         var ws = wb.Worksheets.Add("Alunos");
 
-
-        ws.Cell("A1").Value = "nome";
-        ws.Cell("B1").Value = "idade";
-        ws.Cell("C1").Value = "curso";
-
         ws.Cell("A2").Value = "ana";
         ws.Cell("B2").Value = 20;
         ws.Cell("C2").Value = "engenharia";
@@ -26,6 +21,6 @@ class Program
         ws.Cell("B4").Value = 19;
         ws.Cell("C4").Value = "medicina";
 
-        Console.WriteLine("Planilha criada com sucesso!");
+        Console.WriteLine("planilha criada");
     }
 }
