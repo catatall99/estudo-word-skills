@@ -10,21 +10,21 @@ class Program
         var ws = wb.Worksheets.Add("Alunos");
 
 
-        ws.Cell("A1").Value = "Nome";
-        ws.Cell("B1").Value = "Idade";
-        ws.Cell("C1").Value = "Curso";
+        ws.Cell("A1").Value = "nome";
+        ws.Cell("B1").Value = "idade";
+        ws.Cell("C1").Value = "curso";
 
-        ws.Cell("A2").Value = "Ana";
+        ws.Cell("A2").Value = "ana";
         ws.Cell("B2").Value = 20;
-        ws.Cell("C2").Value = "Engenharia";
+        ws.Cell("C2").Value = "engenharia";
 
-        ws.Cell("A3").Value = "Bruno";
+        ws.Cell("A3").Value = "bruno";
         ws.Cell("B3").Value = 22;
-        ws.Cell("C3").Value = "Direito";
+        ws.Cell("C3").Value = "direito";
 
-        ws.Cell("A4").Value = "Carla";
+        ws.Cell("A4").Value = "carla";
         ws.Cell("B4").Value = 19;
-        ws.Cell("C4").Value = "Medicina";
+        ws.Cell("C4").Value = "medicina";
 
         Console.WriteLine("Planilha criada com sucesso!");
     }
