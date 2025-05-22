@@ -1,0 +1,30 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string aluno = "aluno.txt";
+
+        Console.WriteLine("digite seu nome: ");
+        string nome = Console.ReadLine();
+        Console.WriteLine("digite sua idade: ");
+        string idade = Console.ReadLine();
+        Console.WriteLine("digite seu curso: ");
+        string curso = Console.ReadLine();
+
+        string conteudo = $"ola {nome}, vc tem {idade}, seu curso é {curso}";
+
+        File.WriteAllText(aluno, conteudo);
+
+        Console.WriteLine("arquivo salvo com sucesso");
+
+        string mensagem = "usuario realizou o login com sucesso";
+
+        string logentrada = $"{DateTime.Now}: {mensagem}";
+
+        File.AppendAllText(aluno, logentrada + Environment.NewLine);
+
+        Console.WriteLine("log registrado com sucesso");
+    }
+}
