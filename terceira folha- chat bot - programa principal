@@ -1,0 +1,10 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        ChatBot bot = new ChatBot();
+        bot.Iniciar();
+    }
+}
