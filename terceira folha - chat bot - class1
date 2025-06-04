@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+
+public class ChatBot
+{
+    private Dictionary<string, string> perguntasRespostas;
+    private List<string> respostasGenericas;
+
+    public ChatBot()
+    {
+        // Perguntas conhecidas
+        perguntasRespostas = new Dictionary<string, string>
+        {
+            { "oi", "👋 Olá! Seja bem-vindo à nossa loja 🛍️." },
+            { "o que essa loja faz", "🛒 Vendemos produtos de alta qualidade para o seu dia a dia!" },
+            { "qual é o propósito da loja", "🎯 Nosso propósito é oferecer praticidade e qualidade para nossos clientes." },
+            { "onde ficam os produtos", "📦 Os produtos estão organizados por categoria nos corredores da loja." },
+            { "qual é o horário de funcionamento", "🕘 Funcionamos de segunda a sábado, das 9h às 18h." },
+            { "vocês fazem entrega", "🚚 Sim, entregamos para toda a cidade!" },
+            { "tem promoção", "🔥 Sim! Temos promoções todas as semanas. Confira em nosso site ou loja física." }
+        };
+
+        // Respostas genéricas para perguntas desconhecidas
+        respostasGenericas = new List<string>
+        {
+            "🤔 Isso parece interessante. Pode explicar um pouco mais?",
+            "💡 Ainda não sei como responder isso, mas estou aprendendo!",
+            "🔁 Você pode repetir a pergunta de outra forma?",
+            "❓ Essa pergunta é nova para mim. Pode me dar mais detalhes?",
+            "🧐 Hmmm, boa pergunta! Vamos descobrir juntos?"
+        };
+    }
+
+    public void Iniciar()
+    {
+        Console.WriteLine("Digite 'sair' para encerrar.\n");
+
+        Console.WriteLine("💬 Você pode perguntar, por exemplo:");
+        foreach (var pergunta in perguntasRespostas.Keys)
+        {
+            Console.WriteLine($"   ➤ {pergunta}");
+        }
+
+        while (true)
+        {
+            Console.Write("\n🧑‍💬 Você: ");
+            string entrada = Console.ReadLine()?.ToLower();
+
+            if (entrada == "sair")
+            {
+                Console.WriteLine("👋 Obrigado por visitar nossa loja!!");
+                break;
+            }
+
+            bool respondeu = false;
+
+            foreach (var pergunta in perguntasRespostas)
+            {
+                if (entrada.Contains(pergunta.Key))
+                {
+                    Console.WriteLine("🤖 Bot: " + pergunta.Value);
+                    respondeu = true;
+                    break;
+                }
+            }
+
+            if (!respondeu)
+            {
+                var random = new Random();
+                int index = random.Next(respostasGenericas.Count);
+                Console.WriteLine("🤖 Bot: " + respostasGenericas[index]);
+            }
+        }
+    }
+}
